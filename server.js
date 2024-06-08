@@ -1,11 +1,17 @@
 const express = require('express');
-const connectDB = require('./config/db');
-const User = require('./models/User');
+const connectDB = require('./config/db'); // Import the connectDB function
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const app = express();
 
-// Connect Database
-connectDB();
+// Connect to MongoDB
+connectDB(); // Call the connectDB function
+
+app.listen(5000, () => {
+    console.log('Server started on port 5000');
+});
 
 // Init Middleware
 app.use(express.json());
